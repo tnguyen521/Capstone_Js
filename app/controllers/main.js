@@ -84,10 +84,6 @@ function addToCart(id) {
     total: 0
   }
 
-  // vt = cart.findIndex(function(sp){
-  //   return cartItem.product.id == cart[i].product.id
-  // })
-
   for (var i = 0; i < cart.length; i++) {
     if (cartItem.product.id == cart[i].product.id) {
       trung = true;
