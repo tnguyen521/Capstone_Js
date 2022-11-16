@@ -8,12 +8,8 @@ function setLocalStorage() {
 function getLocalStorage() {
   if (localStorage.getItem("CART") != null) {
     cart = JSON.parse(localStorage.getItem("CART"));
-    // hienThiTable(dssv.mangSV);
   }
-
 }
-
-
 
 function getListProducts() {
   var promise = product.layDanhSachSP();
@@ -27,12 +23,10 @@ function getListProducts() {
   })
 
 }
-
 getListProducts();
 getLocalStorage();
 
 function renderProduct(mangSP) {
-  // console.log(ProductList);
   var content = "";
   mangSP.map(function (sp) {
     content += `
@@ -58,27 +52,28 @@ function renderProduct(mangSP) {
 function renderCart() {
   var sum = 0;
   var content = "";
-  cart.map(function (sp) {
+  cart.map(function (sp, index) {
     sum = sum + sp.quantity * sp.product.price;
-    content += `<tr>
-    <td class="w-25">
-      <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/vans.png"
-        class="img-fluid img-thumbnail" alt="Sheep">
-    </td>
-    <td>${sp.product.name}</td>
-    <td>${sp.product.price}</td>
-    <td class="qty">${sp.quantity}</td>
-    <td>${sp.total}</td>
-    <td>
-      <a href="#" class="btn btn-danger btn-sm">
-        <i class="fa fa-times"></i>
-      </a>
-    </td>
-  </tr>`
+    content += `
+    <tr>
+      <td class="w-25">
+        <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/vans.png"
+          class="img-fluid img-thumbnail" alt="Sheep">
+      </td>
+      <td>${sp.product.name}</td>
+      <td>${sp.product.price}</td>
+      <td class="qty"><i class="fa-sharp fa-solid fa-minus" onclick="minusProduct(${index})"></i> ${sp.quantity} <i class="fa-solid fa-plus" onclick="addToCart(${sp.product.id})"></i></td>
+      <td>${sp.total}</td>
+      <td>
+        <a href="#" class="btn btn-danger btn-sm">
+        <i class="fa-solid fa-trash" onclick="deleteProduct(${index})"></i>
+        </a>
+      </td>
+    </tr>`
   });
   document.querySelector("#bodycart").innerHTML = content;
+  document.querySelector("#sumcart").innerHTML = sum;
 }
-
 
 function addToCart(id) {
   var trung = false;
@@ -89,8 +84,6 @@ function addToCart(id) {
     total: 0
   }
 
-  // console.log(cartItem);
-  // console.log(cart[1].product.id);
   for (var i = 0; i < cart.length; i++) {
     if (cartItem.product.id == cart[i].product.id) {
       trung = true;
@@ -100,22 +93,32 @@ function addToCart(id) {
   if (trung) {
     cart[vt].quantity = cart[vt].quantity + 1;
     cart[vt].total = cart[vt].quantity * cart[vt].product.price;
-
-
   } else {
     cartItem.total = cartItem.product.price;
     cart.push(cartItem);
   }
-
   setLocalStorage();
   renderCart();
 }
 
-console.log(cart);
+function minusProduct(index) {
+  if (cart[index].quantity > 1) {
+    cart[index].quantity = cart[index].quantity - 1;
+    cart[index].total = cart[index].quantity * cart[index].product.price;
+    setLocalStorage();
+    renderCart();
+  }
+}
 
+function deleteProduct(index) {
+  cart.splice(index, 1);
+  setLocalStorage();
+  renderCart();
+}
 
 function clearCart() {
   cart = [];
   setLocalStorage();
   renderCart();
 }
+console.log(cart);
