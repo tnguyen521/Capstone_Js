@@ -161,3 +161,27 @@ figure.snip1268 {
 .modal-footer {
     padding-top: 0rem;
 }
+
+
+i.fa-sharp.fa-solid.fa-minus {
+    padding-right: 10px;
+    font-size: large;
+}
+i.fa-solid.fa-plus {
+    padding-left: 10px;
+    font-size: large;
+}
+i.fa-sharp.fa-solid.fa-minus:hover{
+    color: red;
+}
+i.fa-solid.fa-plus:hover {
+   color: green;
+}
+
+.btncart {
+    display: flex;
+    justify-content: space-between;
+}
+select.form-select {
+    width: auto;
+}

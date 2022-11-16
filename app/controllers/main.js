@@ -2,6 +2,9 @@ var product = new SanPhamService();
 var cart = [];
 var ProductList = [];
 
+
+
+
 function setLocalStorage() {
   localStorage.setItem("CART", JSON.stringify(cart));
 }
@@ -14,8 +17,32 @@ function getLocalStorage() {
 function getListProducts() {
   var promise = product.layDanhSachSP();
   promise.then(function (result) {
-    renderProduct(result.data);
     ProductList = result.data;
+    var a = document.getElementById("hang").value;
+    if (a == 0) {
+      renderProduct(result.data);
+    } else if (a == 1) {
+      var mangKQ = [];
+      ProductList.map(function (sp) {
+        var hangsp = sp.type.toLowerCase().replace(/\s/g, "");
+        var viTri = hangsp.indexOf("iphone");
+        if (viTri > -1) {
+          mangKQ.push(sp);
+        }
+      });
+      renderProduct(mangKQ);
+    } else {
+      var mangKQ = [];
+      ProductList.map(function (sp) {
+        var hangsp = sp.type.toLowerCase().replace(/\s/g, "");
+        var viTri = hangsp.indexOf("samsung");
+        if (viTri > -1) {
+          mangKQ.push(sp);
+        }
+      });
+      renderProduct(mangKQ);
+    }
+
     renderCart();
   });
   promise.catch(function (error) {
@@ -34,7 +61,7 @@ function renderProduct(mangSP) {
         <div class="image">
           <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sq-sample17.jpg" alt="sq-sample17" />
           <div class="icons">
-            <a href="#">${sp.screen}</i></a>
+            <a href="#"><i class="fa-sharp fa-solid fa-mobile-screen"><span class="ps-2">${sp.screen} "</span></i></a>
             <a href="#"> ${sp.backCamera}</i></a>
             <a href="#"> ${sp.frontCamera}</i></a>
           </div>
@@ -121,4 +148,4 @@ function clearCart() {
   setLocalStorage();
   renderCart();
 }
-console.log(cart);
+
