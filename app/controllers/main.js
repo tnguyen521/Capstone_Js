@@ -77,9 +77,11 @@ function renderProduct(mangSP) {
   document.querySelector("#productsList").innerHTML = content;
 }
 function renderCart() {
+  var sum_sl = 0;
   var sum = 0;
   var content = "";
   cart.map(function (sp, index) {
+    sum_sl = sum_sl+sp.quantity;
     sum = sum + sp.quantity * sp.product.price;
     content += `
     <tr>
@@ -100,6 +102,7 @@ function renderCart() {
   });
   document.querySelector("#bodycart").innerHTML = content;
   document.querySelector("#sumcart").innerHTML = sum;
+  document.querySelector(".total-qty").innerHTML = sum_sl;
 }
 
 function addToCart(id) {
