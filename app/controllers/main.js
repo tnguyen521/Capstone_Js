@@ -61,7 +61,7 @@ function renderProduct(mangSP) {
         <div class="image">
           <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sq-sample17.jpg" alt="sq-sample17" />
           <div class="icons">
-            <a href="#">${sp.screen}</i></a>
+            <a href="#"><i class="fa-sharp fa-solid fa-mobile-screen"><span class="ps-2">${sp.screen} "</span></i></a>
             <a href="#"> ${sp.backCamera}</i></a>
             <a href="#"> ${sp.frontCamera}</i></a>
           </div>
