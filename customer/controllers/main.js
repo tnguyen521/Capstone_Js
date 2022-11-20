@@ -59,7 +59,7 @@ function renderProduct(mangSP) {
     content += `
         <figure class="snip1268">
         <div class="image">
-          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sq-sample17.jpg" alt="sq-sample17" />
+          <img src="${sp.img}" />
           <div class="icons">
             <a href="#"><i class="fa-sharp fa-solid fa-mobile-screen"><span class="ps-2">${sp.screen} "</span></i></a>
             <a href="#"> ${sp.backCamera}</i></a>
@@ -77,16 +77,14 @@ function renderProduct(mangSP) {
   document.querySelector("#productsList").innerHTML = content;
 }
 function renderCart() {
-  var sum_sl = 0;
   var sum = 0;
   var content = "";
   cart.map(function (sp, index) {
-    sum_sl = sum_sl+sp.quantity;
     sum = sum + sp.quantity * sp.product.price;
     content += `
     <tr>
       <td class="w-25">
-        <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/vans.png"
+        <img src="${sp.product.img}"
           class="img-fluid img-thumbnail" alt="Sheep">
       </td>
       <td>${sp.product.name}</td>
@@ -102,7 +100,6 @@ function renderCart() {
   });
   document.querySelector("#bodycart").innerHTML = content;
   document.querySelector("#sumcart").innerHTML = sum;
-  document.querySelector(".total-qty").innerHTML = sum_sl;
 }
 
 function addToCart(id) {

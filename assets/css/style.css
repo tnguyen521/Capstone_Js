@@ -1,187 +1,190 @@
-/* Icon set - http://ionicons.com */
-@import url(https://fonts.googleapis.com/css?family=Raleway:400,500,700);
-@import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
-
 body {
-    background: rgb(63, 94, 251);
-    background: radial-gradient(circle, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%);
+  background-image: url(../img/backgroud.jpg);
+  background-size: cover;
 }
 
-figure.snip1268 {
-    padding: 0;
+.container {
+  margin-top: 200px;
 }
 
-.snip1268 {
-    font-family: 'Raleway', Arial, sans-serif;
-    position: relative;
-    overflow: hidden;
-    margin: 10px;
-    min-width: 220px;
-    max-width: 310px;
-    width: 100%;
-    color: #333333;
-    text-align: center;
-    background-color: #ffffff;
-    line-height: 1.6em;
+a {
+  text-decoration: none;
 }
 
-.snip1268 * {
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    -webkit-transition: all 0.6s ease;
-    transition: all 0.6s ease;
+h1 {
+  color: rgb(204, 204, 204);
+  font-family: 'Times New Roman', Times, serif;
 }
 
-.snip1268 .image {
-    position: relative;
+.homeEffect {
+
+  /* opacity: 95%; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 20px auto;
+  width: 250px;
+  height: 250px;
+  background: rgb(34, 193, 195);
+  background: linear-gradient(0deg, rgba(34, 193, 195, 1) 0%, rgba(78, 185, 168, 1) 20%, rgba(111, 141, 178, 1) 35%, rgba(144, 119, 171, 1) 50%, rgba(159, 109, 168, 1) 57%, rgba(253, 45, 147, 0.9472163865546218) 100%);
+  border-radius: 75px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: lighter;
+  letter-spacing: 2px;
+  transition: 1s box-shadow;
 }
 
-.snip1268 img {
-    max-width: 100%;
-    vertical-align: top;
-    -webkit-transition: opacity 0.35s;
-    transition: opacity 0.35s;
+.pic:hover h1 {
+  color: #f3ce5e;
 }
 
-.snip1268 .icons,
-.snip1268 .add-to-cart {
-    position: absolute;
-    left: 20px;
-    right: 20px;
-    opacity: 0;
+.pic:hover .homeEffect {
+  box-shadow: 0 5px 35px 0px rgba(0, 0, 0, 0.1);
 }
 
-.snip1268 .icons {
-    -webkit-transform: translateY(-100%);
-    transform: translateY(-100%);
-    top: 20px;
-    display: flex;
-    justify-content: space-between;
+.pic:hover .homeEffect:before,
+.pic:hover .homeEffect:after {
+  display: block;
+  content: '';
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  background: #fda8cf;
+  border-radius: 75px;
+  z-index: -1;
+  animation: 1s clockwise infinite;
 }
 
-.snip1268 .icons a {
-    width: 32.5%;
-    background: #ffffff;
+.pic:hover .homeEffect:after {
+  background: #f3ce5e;
+  animation: 2s counterclockwise infinite;
 }
 
-.snip1268 .icons a:hover {
-    background: #000000;
+.underline-hover-effect {
+  display: inline-block;
+  padding-bottom: 0.25rem;
+  /* defines the space between text and underline */
+  position: relative;
 }
 
-.snip1268 .icons a:hover i {
-    color: #ffffff;
-    opacity: 1;
+.underline-hover-effect:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 3px;
+  background-color: #f3ce5e;
+  transition: width 0.25s ease-out;
 }
 
-.snip1268 .icons i {
-    line-height: 46px;
-    font-size: 20px;
-    color: #000000;
-    text-align: center;
-    opacity: 0.7;
-    margin: 0;
+.pic:hover .underline-hover-effect:before {
+  width: 100%;
 }
 
-.snip1268 .add-to-cart {
-    position: absolute;
-    bottom: 20px;
-    -webkit-transform: translateY(100%);
-    transform: translateY(100%);
-    font-size: 0.8em;
-    color: #000000;
-    line-height: 46px;
-    letter-spacing: 1.5px;
-    background-color: #ffffff;
-    font-weight: 700;
-    text-decoration: none;
-    text-transform: uppercase;
+@keyframes clockwise {
+  0% {
+    top: -5px;
+    left: 0;
+  }
+
+  12% {
+    top: -2px;
+    left: 2px;
+  }
+
+  25% {
+    top: 0;
+    left: 5px;
+  }
+
+  37% {
+    top: 2px;
+    left: 2px;
+  }
+
+  50% {
+    top: 5px;
+    left: 0;
+  }
+
+  62% {
+    top: 2px;
+    left: -2px;
+  }
+
+  75% {
+    top: 0;
+    left: -5px;
+  }
+
+  87% {
+    top: -2px;
+    left: -2px;
+  }
+
+  100% {
+    top: -5px;
+    left: 0;
+  }
 }
 
-.snip1268 .add-to-cart:hover {
-    background: #000000;
-    color: #ffffff;
-}
+@keyframes counterclockwise {
+  0% {
+    top: -5px;
+    right: 0;
+  }
 
-.snip1268 figcaption {
-    padding: 20px 20px 30px;
-}
+  12% {
+    top: -2px;
+    right: 2px;
+  }
 
-.snip1268 h2,
-.snip1268 p {
-    margin: 0;
-    text-align: left;
-}
+  25% {
+    top: 0;
+    right: 5px;
+  }
 
-.snip1268 h2 {
-    margin-bottom: 10px;
-    font-weight: 700;
-}
+  37% {
+    top: 2px;
+    right: 2px;
+  }
 
-.snip1268 p {
-    margin-bottom: 15px;
-    font-size: 0.85em;
-    font-weight: 500;
-}
+  50% {
+    top: 5px;
+    right: 0;
+  }
 
-.snip1268 .price {
-    font-size: 1.3em;
-    opacity: 0.5;
-    font-weight: 700;
-    text-align: right;
-}
+  62% {
+    top: 2px;
+    right: -2px;
+  }
 
-.snip1268:hover img,
-.snip1268.hover img {
-    opacity: 0.8;
-}
+  75% {
+    top: 0;
+    right: -5px;
+  }
 
-.snip1268:hover .icons,
-.snip1268.hover .icons,
-.snip1268:hover .add-to-cart,
-.snip1268.hover .add-to-cart {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-    opacity: 1;
-}
-.table-image thead td, .table-image thead th {
-    border: 0;
-    color: #666;
-    font-size: 0.8rem;
-}
-.table-image td, .table-image th {
-    vertical-align: middle;
-    text-align: center;
-}
-.table-image td.qty, .table-image th.qty {
-    max-width: 2rem;
-}
-.price {
-    margin-left: 1rem;
-}
-.modal-footer {
-    padding-top: 0rem;
+  87% {
+    top: -2px;
+    right: -2px;
+  }
+
+  100% {
+    top: -5px;
+    right: 0;
+  }
 }
 
 
-i.fa-sharp.fa-solid.fa-minus {
-    padding-right: 10px;
-    font-size: large;
-}
-i.fa-solid.fa-plus {
-    padding-left: 10px;
-    font-size: large;
-}
-i.fa-sharp.fa-solid.fa-minus:hover{
-    color: red;
-}
-i.fa-solid.fa-plus:hover {
-   color: green;
+i.fa-solid.fa-screwdriver-wrench {
+  font-size: 100px;
+  color: black;
 }
 
-.btncart {
-    display: flex;
-    justify-content: space-between;
-}
-select.form-select {
-    width: auto;
+i.fa-solid.fa-store {
+  font-size: 100px;
+  color: aquamarine;
 }
