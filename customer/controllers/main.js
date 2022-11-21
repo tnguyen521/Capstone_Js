@@ -56,23 +56,29 @@ getLocalStorage();
 function renderProduct(mangSP) {
   var content = "";
   mangSP.map(function (sp) {
-    content += `
-        <figure class="snip1268">
-        <div class="image">
-          <img src="${sp.img}" />
-          <div class="icons">
-            <a href="#"><i class="fa-sharp fa-solid fa-mobile-screen"><span class="ps-2">${sp.screen} "</span></i></a>
-            <a href="#"> ${sp.backCamera}</i></a>
-            <a href="#"> ${sp.frontCamera}</i></a>
-          </div>
-          <a href="#" class="add-to-cart" onclick="addToCart(${sp.id})" >Add to Cart</a>
+    content += `<div class="col hp">
+    <div class="card h-100 shadow-sm">
+          <img src="${sp.img}" class="card-img-top"
+                alt="product.title" />
+        <div class="label-top shadow-sm">
+            <a class="text-white" href="#" >${sp.type}</a>
         </div>
-        <figcaption>
-          <h2>${sp.name}</h2>
-          <p>${sp.desc}</p></p>
-          <div class="price">$ ${sp.price} </div>
-        </figcaption>
-      </figure>`
+        <div class="card-body">
+            <div class="clearfix mb-3">
+                <span class="float-start badge rounded-pill bg-success">${sp.price} $</span>
+                <span class="float-end"><a href="#"
+                        class="small text-muted text-uppercase aff-link">${sp.name}</a></span>
+            </div>
+            <h5 class="card-title">
+                <p>Sreen: ${sp.screen} ,Front-Camera : ${sp.frontCamera} , Back-Camera : ${sp.backCamera} </p>
+                <p>${sp.desc}</p>
+            </h5>
+            <div class="d-grid gap-2 my-4">
+                <button class="btn btn-warning bold-btn" onclick="addToCart(${sp.id})">add to cart</button>
+            </div>
+        </div>
+    </div>
+</div>`
   });
   document.querySelector("#productsList").innerHTML = content;
 }
@@ -89,7 +95,7 @@ function renderCart() {
       </td>
       <td>${sp.product.name}</td>
       <td>${sp.product.price}</td>
-      <td class="qty"><i class="fa-sharp fa-solid fa-minus" onclick="minusProduct(${index})"></i> ${sp.quantity} <i class="fa-solid fa-plus" onclick="addToCart(${sp.product.id})"></i></td>
+      <td class="qty"> <div class="icon"><i class="fa-sharp fa-solid fa-minus" onclick="minusProduct(${index})"> </i> ${sp.quantity} <i class="fa-solid fa-plus" onclick="addToCart(${sp.product.id})"></i></div></td>
       <td>${sp.total}</td>
       <td>
         <a href="#" class="btn btn-danger btn-sm">

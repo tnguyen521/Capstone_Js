@@ -17,20 +17,26 @@
 </head>
 
 <body>
-  <div class="container text-center mt-5">
-
-    <!-- Button trigger modal -->
-    <div class="btncart mb-3">
-      <select class="form-select" aria-label="Default select example" id="hang" onchange="getListProducts()">
-        <option value="0">All</option>
-        <option value="1">Iphone</option>
-        <option value="2">Samsung</option>
-      </select>
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        <i class="fa-solid fa-cart-shopping"></i>
+  <nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Phone Shop</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
       </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link active" aria-current="page" href="../../index.html">Home</a>
+          <a class="nav-link" href="#"><i class="fa-solid fa-screwdriver-wrench"></i></a>
+        </div>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+          onclick="renderCart()">
+          <i class="fa-solid fa-cart-shopping"></i>
+        </button>
+      </div>
     </div>
-    
+  </nav>
+  <div class="container text-center ">
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-xl">
@@ -52,7 +58,7 @@
                 </tr>
               </thead>
               <tbody id="bodycart">
-                  <!-- CART HERE  -->
+                <!-- CART HERE  -->
               </tbody>
 
             </table>
@@ -67,14 +73,25 @@
         </div>
       </div>
     </div>
+    <!-- Button trigger modal -->
+    <div class="container-fluid btncart">
+      <select class="form-select" aria-label="Default select example" id="hang" onchange="getListProducts()">
+        <option value="0">All</option>
+        <option value="1">Iphone</option>
+        <option value="2">Samsung</option>
+      </select>
 
-    <div class="row row-cols-4" id="productsList">
-      <!-- PRODUCT HERE  -->
+    </div>
+
+    <div class="container-fluid bg-trasparent my-4 p-3" style="position: relative">
+      <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3" id="productsList">
+        <!-- Card 1 -->
+      </div>
     </div>
 
   </div>
 
-  <!-- //~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
 
 
